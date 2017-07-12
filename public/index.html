@@ -59,101 +59,122 @@
 				<li><a href="#">Browse Events</a></li>
 				<li><a href="#">Create Event</a></li>
 			<!-- start Login Popup -->
-		<li>
-				<a id="modal1 loginForm" href="#" data-toggle="modal" data-target="#bannerformmodal">Log In</a></li>
+				<li><a id="modal1" href="#" data-toggle="modal" data-target="#bannerformmodal">Log In</a></li>
+
 					<div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
 					<div class="modal-dialog modal-sm">
-					    <div class="modal-content">
-					      <div class="modal-content">
-					        <div class="modal-header">
-					          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					          <h4 class="modal-title" id="myModalLabel">Log Into Your Account</h4>
-					        </div>
-					        <div class="modal-body">
-					          <form id="form1" method="POST" name="form1">
-					            <div class="form-group">
-					              <div class="input-group">                               
-					                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-					                <input id="email1" type="text" class="form-control" placeholder="Email" name="email1" required onchange="validateEmailAdd();"/>
-					              </div>
-					            </div>
-					            <div class="form-group">
-					              <div class="input-group">                               
-					                <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
-					                <input id="passWord1" type="text" class="form-control" placeholder="Password" name="passwordLogIn" onchange="validatePassword();"/>
-					              </div>
-					            </div>
-					          </form>
-					        </div>
-					        <div class="modal-footer">
-					          <button id="loginButton" type="button" class="btn btn-blue">Submit</button>
-					          <div class="popup1">
-					          <span id="close">&times;</span>
-					          <p>You have logged in!</p>
-					          </div>
-					        </div>
-					        <div>
-					          <button id="lostPasswordBtn" type="button" class="btn btn-link">Are you logged in?</button>
-					        </div>
-					      </div>
-					    </div>
+						<div class="modal-content">
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							  <h4 class="modal-title" id="myModalLabel">Log Into Your Account</h4>
+							</div>
+							<div class="modal-body">
+							  <form id="form1" method="POST" name="form1">
+
+								<div class="form-group">
+								  <div class="input-group">                               
+									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+									<input id="email1" type="text" class="form-control" placeholder="Email" name="email1" required onchange="validateEmailAdd();"/>
+								  </div>
+								</div>
+
+								<div class="form-group">
+								  <div class="input-group">                               
+									<span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
+									<input id="passWord1" type="text" class="form-control" placeholder="Password" name="passwordLogIn" onchange="validatePassword();"/>
+								  </div>
+								</div>
+							  
+							  </form>
+							
+							</div>
+							
+							<div class="modal-footer">
+							  <button id="loginButton" type="button" class="btn btn-blue">Submit</button>
+								<div class="popup1">
+									<span id="close">&times;</span>
+							  		<p>You have logged in!</p>
+							  	</div>
+							</div>
+							
+							<div>
+							  <button id="lostPasswordBtn" type="button" class="btn btn-link">Are you logged in?</button>
+							</div>
+						  
+						  </div>
+						</div>
 					  </div>
-					</div>
-				</li>
+					 </div>
+				
+				
 			<!-- start Sign Up Popup -->
-					<li><a id="modal2 signUpForm" href="#" data-toggle="modal" data-target="#bannerformmodal2">Sign Up</a></li>
+					<li><a id="modal2" href="#" data-toggle="modal" data-target="#bannerformmodal2">Sign Up</a></li>
+
 					<div class="modal fade bannerformmodal" tabindex="-2" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal2">
 					  <div class="modal-dialog modal-sm">
-					      <div class="modal-content">
-					        <div class="modal-content">
-					          <div class="modal-header">
-					            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					            <h4 class="modal-title" id="myModalLabel2">Create Your Account</h4>
-					          </div>
-					          <div class="modal-body">
-					            <form id="form2" method="POST" name="form2">
+						  <div class="modal-content">
+							<div class="modal-content">
+
+							  <div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								<h4 class="modal-title" id="myModalLabel2">Create Your Account</h4>
+							  </div>
+
+							  <div class="modal-body">
+								<form id="form2" method="POST" name="form2">
 					  
-					              <div class="form-group">
-					                <div class="input-group">                               
-					                  <span class="input-group-addon"><i class="fa fa-paw"></i></span>
-					                  <input id="first_name" type="text" class="form-control" placeholder="First Name" name="first_name" onsubmit="validateForm();"/>
-					                </div>
-					              </div>
-					              <div class="form-group">
-					                <div class="input-group">                               
-					                  <span class="input-group-addon"><i class="fa fa-paw"></i></span>
-					                  <input id="last_name" type="text" class="form-control" placeholder="Last Name" name="last_name" onsubmit="validateForm();"/>
-					                </div>
-					              </div>
-					              <div class="form-group">
-					                <div class="input-group">                               
-					                  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-					                  <input id="email2" type="text" class="form-control" placeholder="Email" name="email2" onchange="validateEmailAdd();"/>
-					                </div>
-					              </div>
-					              <div class="form-group">
-					                <div class="input-group">                               
-					                  <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
-					                  <input id="createPassword1" type="text" class="form-control" placeholder="Create Password" name="createPassword1" onchange="validatePassword();"/>
-					                </div>
-					              </div>
-					              <div class="form-group">
-					                <div class="input-group">                               
-					                  <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
-					                  <input id="retypePassword1" type="text" class="form-control" placeholder="Retype Password" name="retypePassword1" onchange="validatePassword();"/>
-					                </div>
-					              </div>
-					              
-					  
-					  			</div>
-					          <div class="modal-footer">
-					            <button id="createProfile" type="button" class="btn btn-blue">Create Your Profile</button>
-					          </div>        
-					        </div>
-					      </div>
-					    </div>
+								  <div class="form-group">
+									<div class="input-group">                               
+									  <span class="input-group-addon"><i class="fa fa-paw"></i></span>
+									  <input id="first_name" type="text" class="form-control" placeholder="First Name" name="first_name" onsubmit="validateForm();"/>
+									</div>
+								  </div>
+
+								  <div class="form-group">
+									<div class="input-group">                               
+									  <span class="input-group-addon"><i class="fa fa-paw"></i></span>
+									  <input id="last_name" type="text" class="form-control" placeholder="Last Name" name="last_name" onsubmit="validateForm();"/>
+									</div>
+								  </div>
+								  
+								  <div class="form-group">
+									<div class="input-group">                               
+									  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+									  <input id="email2" type="text" class="form-control" placeholder="Email" name="email2" onchange="validateEmailAdd();"/>
+									</div>
+								  </div>
+								  
+								  <div class="form-group">
+									<div class="input-group">                               
+									  <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
+									  <input id="createPassword1" type="text" class="form-control" placeholder="Create Password" name="createPassword1" onchange="validatePassword();"/>
+									</div>
+								  </div>
+								  
+								  <div class="form-group">
+									<div class="input-group">                               
+									  <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
+									  <input id="retypePassword1" type="text" class="form-control" placeholder="Retype Password" name="retypePassword1" onchange="validatePassword();"/>
+									</div>
+								  </div>
+								</form>
+								</div>
+
+							  <div class="modal-footer">
+								<button id="createProfile" type="button" class="btn btn-blue">Create Your Profile</button>
+								<button id="verifyCreation" type="button" class="btn btn-link">Has your profile been created?</button>
+									<div class="popup2">
+										<span id="close">&times;</span>
+										<p>Your profile has been created!</p>
+									</div>
+							  </div>        
+							</div>
+						  </div>
+						</div>
 					</div>
-				</li>
+
+			
 					<!-- END OF FORM POP-UPS -->
 				<li><a href="#">About/Contact</a></li>
 				<li><a href="#">Get the App</a></li>
@@ -173,44 +194,44 @@
 				<div class="row">
 			<!-- search 1 -->
 				  <div class="col-lg-3 col-md-6">
-				    <div class="input-group filterSearch">
-				      <input type="search" class="filterSearchForm form-control" placeholder="Type of Event">
-				      <span class="input-group-btn">
-				        <button class="btn btn-default" type="button">Go!</button>
-				      </span>
-				    </div>
+					<div class="input-group filterSearch">
+					  <input type="search" class="filterSearchForm form-control" placeholder="Type of Event">
+					  <span class="input-group-btn">
+						<button class="btn btn-default" type="button">Go!</button>
+					  </span>
+					</div>
 				  </div>
 			<!-- search 2 -->
 					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-				    <div class="input-group formStretch filterSearch">
-				      <input type="text" class="filterSearchForm form-control" placeholder="From" id="from">
-				    </div>
+					<div class="input-group formStretch filterSearch">
+					  <input type="text" class="filterSearchForm form-control" placeholder="From" id="from">
+					</div>
 				  </div>
 				  <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
-				    <div class="input-group filterSearch">
-				      <input type="text" class="filterSearchForm form-control" placeholder="To" id="to">
-				      <span class="input-group-btn">
-				        <button class="btn btn-default" type="button">Go!</button>
-				      </span>
-				    </div>
+					<div class="input-group filterSearch">
+					  <input type="text" class="filterSearchForm form-control" placeholder="To" id="to">
+					  <span class="input-group-btn">
+						<button class="btn btn-default" type="button">Go!</button>
+					  </span>
+					</div>
 				  </div>
 			<!-- search 3 -->
 				<div class="col-lg-3 col-md-6">
-				    <div class="input-group filterSearch">
-				      <input type="text" class="filterSearchForm form-control" placeholder="Location">
-				      <span class="input-group-btn">
-				        <button class="btn btn-default" type="button">Go!</button>
-				      </span>
-				    </div>
+					<div class="input-group filterSearch">
+					  <input type="text" class="filterSearchForm form-control" placeholder="Location">
+					  <span class="input-group-btn">
+						<button class="btn btn-default" type="button">Go!</button>
+					  </span>
+					</div>
 				  </div>
 			<!-- search 4 -->
 				<div class="col-lg-2 col-md-6">
-				    <div class="input-group filterSearch">
-				      <input type="text" class="filterSearchForm form-control" placeholder="Admission Price">
-				      <span class="input-group-btn">
-				        <button class="btn btn-default" type="button">Go!</button>
-				      </span>
-				    </div>
+					<div class="input-group filterSearch">
+					  <input type="text" class="filterSearchForm form-control" placeholder="Admission Price">
+					  <span class="input-group-btn">
+						<button class="btn btn-default" type="button">Go!</button>
+					  </span>
+					</div>
 				  </div>
 			<!--/ search 4 -->
 
@@ -264,18 +285,79 @@
 
 
 	  $('#createAccount').click(function(){
-	    var createAccount = {
-	      "firstName": $('#firstName').val(),
-	      "lastName": $('#lastName').val(),
-	      "signInEmail": $('#signInEmail').val(),
-	      "password": $('#createPassword').val(),
-	      "confirmPassword": $('#retypePassword').val()
-	    }
+		var createAccount = {
+		  "firstName": $('#firstName').val(),
+		  "lastName": $('#lastName').val(),
+		  "signInEmail": $('#signInEmail').val(),
+		  "password": $('#createPassword').val(),
+		  "confirmPassword": $('#retypePassword').val()
+		}
 
-    	$.post('/create-Account', createAccount, function(err,response){
-    		createAccount;
-    		})
-  		})
+		$.post('/create-Account', createAccount, function(err,response){
+			createAccount;
+			})
+		})
+
+$('#loginButton').click(function(){
+					  
+					var loginForm=[
+					{
+					  "email1": "",
+					  "passWord1": "",
+					  }
+					];
+					  
+					  console.log($('#email1').val());
+					  console.log($('#passWord1').val());
+
+					  $.post('url', loginForm, function(err,res){
+
+					  });
+
+					  $('#loginForm').trigger("reset");
+
+					$(document).ready(function(){
+						$("#lostPasswordBtn").on('click', function(){
+							$(".popup1").fadeIn('slow');
+						});
+					});
+
+
+					});
+
+
+	$('#createProfile').click(function(){
+						  
+						var signUpForm=[
+						{
+						  "first_name": "",
+						  "last_name": "",
+						  "email2": "",
+						  "createPassword1": "",
+						  "retypePassword1": "",
+						  }
+						];
+						  
+						  console.log($('#first_name').val());
+						  console.log($('#last_name').val());
+						  console.log($('#email2').val());
+						  console.log($('#createPassword1').val());
+						  console.log($('#retypePassword1').val());
+
+						  $.post('url', signUpForm, function(err,res){
+
+						  });
+
+						  $('#signUpForm').trigger("reset");
+
+						  $(document).ready(function(){
+							$("#verifyCreation").on('click', function(){
+							$(".popup2").fadeIn('slow');
+								});
+						  });
+
+
+						});
 
 
 		$('#loginButton').click(function(){
@@ -284,7 +366,7 @@
 				{
 				  "email1": "",
 				  "passWord1": "",
-			  	}
+				}
 			];
 		  
 		  console.log($('#email1').val());
