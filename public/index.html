@@ -180,6 +180,11 @@
 					  			</div>
 					          <div class="modal-footer">
 					            <button id="createProfile" type="button" class="btn btn-blue">Create Your Profile</button>
+					       		<button id="verifyCreation" type="button" class="btn btn-link">Has your profile been created?</button>
+					       		<div class="popup2">
+					       		<span id="close">&times;</span>
+					            <p>Your profile has been created!</p>
+					            </div>
 					          </div>        
 					        </div>
 					      </div>
@@ -211,6 +216,12 @@
 						  });
 
 						  $('#signUpForm').trigger("reset");
+
+						  $(document).ready(function(){
+							$("#verifyCreation").on('click', function(){
+							$(".popup2").fadeIn('slow');
+								});
+						  });
 
 
 						});
