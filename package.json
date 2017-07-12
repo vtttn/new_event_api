@@ -1,0 +1,13 @@
+{
+  "name": "kerry-vicky-event-app",
+  "version": "1.0.0",
+  "description": "new orleans event mapper",
+  "main": "server.js",
+  "author": "Kerry + Vicky",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "foobar": "^1.1.0",
+    "mongoose": "^4.1.0"
+  }
+}
