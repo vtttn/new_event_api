@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<title>New Orleans Event Mapper</title>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+				<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+		<!-- Jquery script -->
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+		<!-- custom css -->
+		<link rel="stylesheet" type="text/css" href="style.css">
+
+		<!-- custom script -->
+		<script type="text/javascript" src="script.js"></script>
+
+</head>
+
+<body>
+<!-- NAV -->
+
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="index.html">FLEURISH EVENTS</a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="browse.html">Browse Events</a></li>
+								<li><a href="newevent.html">Create Event</a></li>
+						<!-- start Login Popup -->
+								<li><a id="modal1" href="#" data-toggle="modal" data-target="#bannerformmodal">Log In</a></li>
+										<div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
+										<div class="modal-dialog modal-sm">
+												<div class="modal-content">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title" id="myModalLabel">Log Into Your Account</h4>
+														</div>
+														<div class="modal-body">
+															<form id="form1" method="POST" name="form1">
+																<div class="form-group">
+																	<div class="input-group">                               
+																		<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+																		<input id="email1" type="text" class="form-control" placeholder="Email" name="email1" required onchange="validateEmailAdd();"/>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<div class="input-group">                               
+																		<span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
+																		<input id="passWord1" type="text" class="form-control" placeholder="Password" name="passwordLogIn" onchange="validatePassword();"/>
+																	</div>
+																</div>
+															</form>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-blue">Submit</button>
+														</div>
+														<div>
+															<button id="lostPasswordBtn" type="button" class="btn btn-link">Lost Password?</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+						<!-- start Sign Up Popup -->
+										<li><a id="modal2" href="#" data-toggle="modal" data-target="#bannerformmodal2">Sign Up</a></li>
+										<div class="modal fade bannerformmodal" tabindex="-2" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal2">
+											<div class="modal-dialog modal-sm">
+													<div class="modal-content">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+																<h4 class="modal-title" id="myModalLabel2">Create Your Account</h4>
+															</div>
+															<div class="modal-body">
+																<form id="form2" method="POST" name="form2">
+											
+																	<div class="form-group">
+																		<div class="input-group">                               
+																			<span class="input-group-addon"><i class="fa fa-paw"></i></span>
+																			<input id="firstName" type="text" class="form-control" placeholder="First Name" name="first_name"/>
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<div class="input-group">                               
+																			<span class="input-group-addon"><i class="fa fa-paw"></i></span>
+																			<input id="lastName" type="text" class="form-control" placeholder="Last Name" name="last_name" />
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<div class="input-group">                               
+																			<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+																			<input id="signInEmail" type="text" class="form-control" placeholder="Email" name="email1"/>
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<div class="input-group">                               
+																			<span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
+																			<input id="createPassword" type="text" class="form-control" placeholder="Create Password" name="createPassword1"/>
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<div class="input-group">                               
+																			<span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
+																			<input id="retypePassword" type="text" class="form-control" placeholder="Retype Password" name="retypePassword1"/>
+																		</div>
+																	</div>
+																									
+																</form>
+															</div>
+															<div class="modal-footer">
+																<button id="createAccount" type="button" class="btn btn-blue">Create Your Profile</button>
+															</div>        
+														</div>
+													</div>
+												</div>
+										</div>
+										<!-- END OF FORM POP-UPS -->
+								<li><a href="about.html">About/Contact</a></li>
+								<li><a href="getApp.html">Get the App</a></li>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav>
+
+<!-- / NAV -->
+
+<!-- JUMBOTRON -->
+
+				<div class="jumbotron">
+					<div class="container">
+						<h1>Contact Fleurish</h1>
+								<div class="row">
+									<div class="col-lg-6">
+								
+									</div>
+								</div>
+					</div>
+				</div>
+
+<!-- / JUMBOTRON -->
+
+<!-- start Contact Form -->
+
+			<div class="container">
+				<h3>Have a question? Tell us who you are so we can help!</h3>
+				<h8>* all fields required</h8>
+
+				<h6>*FULL NAME</h6>
+					<input id="input1" type="text" name="userName">
+
+				<h6>*EMAIL</h6>
+					<input id="input2" type="text" name="email">
+
+				<h6>*COUNTRY</h6>
+					<select id="input3" name="Country">
+						<option value="blank" selected>------</option>
+						<option value="USA">United States</option>
+					</select>
+
+				<h6>*STATE</h6>
+					<select id="input4" name="State">
+						<option value="blank" selected>------</option>
+						<option value="Louisiana">Louisiana</option>
+					</select>
+
+				<h6>*MESSAGE</h6>
+					<input id="input5" type="text" name="message">
+
+				<br />
+				<br />
+
+				<p><a class="btn btn-primary btn-lg" href="\event\contact.html" role="button" id="contactButton">Submit</a></p>
+			</div>
+
+
+
+<!-- START OF SCRIPT -->
+
+		<script>
+
+			$('#contactButton').click(function(){				
+				var contactForm=[
+					{
+						"input1": "",
+						"input2": "",
+						"input3": "",
+						"input4": "",
+						"input5": "",
+					}
+				];
+				
+				console.log($('#input1').val());
+				console.log($('#input2').val());
+				console.log($('#input3').val());
+				console.log($('#input4').val());
+				console.log($('#input5').val());
+
+				$.post('url', contactForm, function(err,res){
+							});
+				});
+
+		</script>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</body>
+
+</html>

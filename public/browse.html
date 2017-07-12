@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<title>New Orleans Event Mapper</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+	<!-- Jquery script -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<!-- custom css -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<!-- custom script -->
+	<script type="text/javascript" src="script.js"></script>
+
+</head>
+
+<body>
+
+
+<!-- NAV -->
+
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="index.html">FLEURISH EVENTS</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav navbar-right">
+				<li><a href="browse.html">Browse Events</a></li>
+				<li><a href="newevent.html">Create Event</a></li>
+			<!-- start Login Popup -->
+				<li><a id="modal1" href="#" data-toggle="modal" data-target="#bannerformmodal">Log In</a></li>
+					<div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
+					<div class="modal-dialog modal-sm">
+					    <div class="modal-content">
+					      <div class="modal-content">
+					        <div class="modal-header">
+					          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					          <h4 class="modal-title" id="myModalLabel">Log Into Your Account</h4>
+					        </div>
+					        <div class="modal-body">
+					          <form id="form1" method="POST" name="form1">
+					            <div class="form-group">
+					              <div class="input-group">                               
+					                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+					                <input id="email1" type="text" class="form-control" placeholder="Email" name="email1" required onchange="validateEmailAdd();"/>
+					              </div>
+					            </div>
+					            <div class="form-group">
+					              <div class="input-group">                               
+					                <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
+					                <input id="passWord1" type="text" class="form-control" placeholder="Password" name="passwordLogIn" onchange="validatePassword();"/>
+					              </div>
+					            </div>
+					          </form>
+					        </div>
+					        <div class="modal-footer">
+					          <button type="button" class="btn btn-blue">Submit</button>
+					        </div>
+					        <div>
+					          <button id="lostPasswordBtn" type="button" class="btn btn-link">Lost Password?</button>
+					        </div>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+			<!-- start Sign Up Popup -->
+					<li><a id="modal2" href="#" data-toggle="modal" data-target="#bannerformmodal2">Sign Up</a></li>
+					<div class="modal fade bannerformmodal" tabindex="-2" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal2">
+					  <div class="modal-dialog modal-sm">
+					      <div class="modal-content">
+					        <div class="modal-content">
+					          <div class="modal-header">
+					            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					            <h4 class="modal-title" id="myModalLabel2">Create Your Account</h4>
+					          </div>
+					          <div class="modal-body">
+					            <form id="form2" method="POST" name="form2">
+					  
+					              <div class="form-group">
+					                <div class="input-group">                               
+					                  <span class="input-group-addon"><i class="fa fa-paw"></i></span>
+					                  <input id="firstName" type="text" class="form-control" placeholder="First Name" name="first_name"/>
+					                </div>
+					              </div>
+					              <div class="form-group">
+					                <div class="input-group">                               
+					                  <span class="input-group-addon"><i class="fa fa-paw"></i></span>
+					                  <input id="lastName" type="text" class="form-control" placeholder="Last Name" name="last_name" />
+					                </div>
+					              </div>
+					              <div class="form-group">
+					                <div class="input-group">                               
+					                  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+					                  <input id="signInEmail" type="text" class="form-control" placeholder="Email" name="email1"/>
+					                </div>
+					              </div>
+					              <div class="form-group">
+					                <div class="input-group">                               
+					                  <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
+					                  <input id="createPassword" type="text" class="form-control" placeholder="Create Password" name="createPassword1"/>
+					                </div>
+					              </div>
+					              <div class="form-group">
+					                <div class="input-group">                               
+					                  <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
+					                  <input id="retypePassword" type="text" class="form-control" placeholder="Retype Password" name="retypePassword1"/>
+					                </div>
+					              </div>
+					  
+					            </form>
+					          </div>
+					          <div class="modal-footer">
+					            <button id="createAccount" type="button" class="btn btn-blue">Create Your Profile</button>
+					          </div>        
+					        </div>
+					      </div>
+					    </div>
+					</div>
+					<!-- END OF FORM POP-UPS -->
+				<li><a href="about.html">About/Contact</a></li>
+				<li><a href="getApp.html">Get the App</a></li>
+			  </ul>
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+
+<!-- / NAV -->
+
+<!-- start collapse filter -->
+	<div class="container"> <!-- start page container -->
+		<div class="panel-group col-sm-3" id="accordion" role="tablist" aria-multiselectable="true">
+		  <div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id="headingOne">
+		      <h4 class="panel-title">
+		        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		          Filter 1
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+		      <div class="panel-body">
+		        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id="headingTwo">
+		      <h4 class="panel-title">
+		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+		          Filter 2
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+		      <div class="panel-body">
+		        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id="headingThree">
+		      <h4 class="panel-title">
+		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+		          Filter 3
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		      <div class="panel-body">
+		        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	
+<!-- / collapse filter -->
+
+<!-- start populate events -->
+		<div class="col-sm-9">
+
+		<div id="accounts">
+			
+		</div>
+
+		<h1>Events</h1>
+
+		<div id="eventList"></div>
+		</div>
+
+	</div> <!-- /page container -->
+
+
+
+
+<script type="text/javascript">
+
+	// var URL = localhost:3000;
+	var URL = fleurish.herokuapp.com;
+
+	// create a new account
+
+	$('#createAccount').click(function(){
+	    var createAccount = {
+	      "firstName": $('#firstName').val(),
+	      "lastName": $('#lastName').val(),
+	      "signInEmail": $('#signInEmail').val(),
+	      "password": $('#createPassword').val(),
+	      "confirmPassword": $('#retypePassword').val()
+	    }
+
+    	$.post('/create-Account', createAccount, function(err,response){
+    		createAccount;
+    	})
+  	})
+
+
+//  get all accounts
+
+	$.get('/all-accounts', function(data){
+		var el ="";
+		for ( i = 0; i < data.length; i++){
+
+			el+="<h4>"+data[i].firstName+"</h4><h5>"+data[i].lastName+"</h5><p>"+data[i].signInEmail+"</p><p>"+data[i].password+"</p><p>"+data[i].confirmPassword+"</p>";
+		}
+
+		$('#accounts').append(el);
+
+ 		// $('#accounts').append(JSON.stringify(data))
+	});
+
+// get all data
+
+	$.get('http://localhost:3000/all-event', function(data){
+		var el ="";
+		for( i = 0; i < data.length; i++){
+
+		el+="<h3>"+data[i].title+"</h3><p><span class='label label-default'><a href=#>"+data[i].type[0]+"</a></span> <span class='label label-default'>"+data[i].type[1]+"</span> <span class='label label-default'>"+data[i].type[2]+"</span> <span class='label label-default'>"+data[i].type[3]+"</span> <span class='label label-default'>"+data[i].type[4]+"</span> <span class='label label-default'>"+data[i].type[5]+"</span> <span class='label label-default'>"+data[i].type[6]+"</span> <span class='label label-default'>"+data[i].type[7]+"</span></p><p>"+data[i].description+"</p><p>"+data[i].location.street+"<br>"+data[i].location.city+", "+data[i].location.state+" "+data[i].location.zip+"</p><p>"+data[i].date.startDate+" - "+data[i].date.endDate+"</p><p>"+data[i].time.startTime+" to "+data[i].time.endTime+"</p><p>Age Restriction: "+data[i].ageRestriction+"</p><p>"+data[i].website+"</p><p>Admission Price: $"+data[i].admission+"</p><p>Photos: "+data[i].photos+"</p><p>Fleurs: "+data[i].fleur+"</p>";
+		
+			// trying to figure out how to hide the undefined type of event tags
+			for(a = 0; a < 7; a++){
+				if(data[i].type[a] === undefined){
+					$('span').addClass('hiddenTag');
+				}
+			}
+
+		} 
+	
+		$('#eventList').append(el);
+
+	});
+
+
+
+
+</script>
+
+</body>
+
+</html>

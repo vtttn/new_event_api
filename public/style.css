@@ -1,0 +1,43 @@
+.filterHeader {
+	height: 100vh; 
+	/*vh means viewport height*/
+	background-color: #e0e0e0;
+	width:auto;
+	background-image: url(../img/cover.png);
+	background-size: cover;
+	background-position: center;
+}
+.hideIt{
+	display: none;
+}
+
+.formStretch {
+	width: 100%;
+}
+
+.filterSearch{
+	margin-bottom: 15px;
+}
+
+.filterSearchForm {
+	border: none;
+	border-bottom: 2px solid #555;
+	border-radius: 0px;
+	background-color: rgba(255,255,255,.5);
+	box-shadow: none;
+	transition: none;
+	color: #000;
+}
+
+.radioline{
+	padding-top: 0px !important;
+}
+
+.adminAdd{
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+}
+
+.createForm {
+	border-radius: 0px;
+}

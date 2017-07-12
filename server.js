@@ -103,21 +103,21 @@ app.use(bodyParser.json());
 
 
 // to know that your node server.js is running
-// app.listen( port, function(err) {  
-//   if (err) {
-//     return console.log('something bad happened', err)
-//   }
-//   console.log(`Magic is happening on ${port}`) // also can use + port (the variable/const)
-// });
-
-
-// heroku port
-app.listen( process.env.PORT || 5000, function(err) {  
+app.listen( port, function(err) {  
   if (err) {
     return console.log('something bad happened', err)
   }
-  console.log(`Magic is happening on ${process.env.PORT}`) // also can use + port (the variable/const)
+  console.log(`Magic is happening on ${port}`) // also can use + port (the variable/const)
 });
+
+
+// heroku port
+// app.listen( process.env.PORT || 5000, function(err) {  
+//   if (err) {
+//     return console.log('something bad happened', err)
+//   }
+//   console.log(`Magic is happening on ${process.env.PORT}`) 
+// });
 
 // connecting to MongoDB
 mongoose.connect('mongodb://heroku_b4j2nktr:gnj5m6pb65s7su7gtaj1ldf8mh@ds153732.mlab.com:53732/heroku_b4j2nktr', function (error) {
@@ -148,12 +148,13 @@ app.post('/create-Account', function(request,response){
 });
 
 // get all accounts
+
 app.get('/all-accounts', function(request, response) {  
-	userAccounts.find({},function(err,todo){
+	userAccounts.find({},function(err,userAccounts){
 		if(err){
 			console.log(err)
 		}else{
-			console.log(todo);
+			response.json(userAccounts);
 		}
 	});
 });
@@ -176,7 +177,7 @@ eventSchema = new mongoose.Schema({
 
 var Events = mongoose.model('events', eventSchema);
 
-// grab the var event from server.js
+// grab the event collection from MongoDB
 app.get('/all-event', function(request, response) {  
  	Events.find( function(){
  		response.json(Events);
@@ -184,14 +185,9 @@ app.get('/all-event', function(request, response) {
 });
 
 
-// grab the collection event from MongoDB
-// app.get('/all-event', function(request, response) {  
-//   event.find();
-// });
 
-
-
-
+// define the folder that will be used for static assets
+app.use(express.static('public'));
 
 
 
@@ -218,36 +214,6 @@ app.post('/new-event', function(request, response) {
 // 	userAccounts.push(request.body);
 // 	response.send(userAccounts);
 // });
-
-// blocking out Mongoose to have Postman work
-// Mongoose Schema Definition
-// 	Schema = new mongoose.Schema({
-// 		id      : String,
-// 		title	: String,
-// 		type	: [String],
-// 		description: String,
-// 		location: String,
-// 		date 	: String,
-// 		time 	: String,
-// 		ageRestriction: Boolean,
-// 		website	: String,
-// 		admission: String,
-// 		photos 	: String,
-// 		flag	: String,
-// 	})
-
-// 	event = mongoose.model('event', Schema);
-
-
-
-// mongoose.connect('mongodb://heroku_b4j2nktr:gnj5m6pb65s7su7gtaj1ldf8mh@ds153732.mlab.com:53732/heroku_b4j2nktr', function (error) {
-//     if (error) console.error(error);
-//     else console.log('mongo connected');
-// });
-
-
-
-
 
 
 
@@ -287,21 +253,6 @@ app.get('/freeAdmission', function(request, response) {
 
 
 
-
-// app.get('/api/event', function (request, response){
-// 	//http://mongoosejs.com.docs/api.html#query_query-find
-// 	event.find( function( err, event){
-// 		res.json(200,event);
-// 	});
-// })
-
-// app.post('/api/addEvent', function (request, response){
-// 	var addEvent = new Event ();
-// 	addEvent = {
-// 		"key": "value",
-// 		"otherKey": "value", 
-// 	}
-// })
 
 
 // function filterAdmissionFree() {
