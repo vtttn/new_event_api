@@ -59,7 +59,11 @@
 				<li><a href="#">Browse Events</a></li>
 				<li><a href="#">Create Event</a></li>
 			<!-- start Login Popup -->
+<<<<<<< HEAD
 			<form id="loginForm" action="">
+=======
+			<form id="loginForm" action="" >
+>>>>>>> e3fc452f1a4dee6870d71d1775b77b069381d878
 				<li><a id="modal1" href="#" data-toggle="modal" data-target="#bannerformmodal">Log In</a></li>
 					<div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
 					<div class="modal-dialog modal-sm">
@@ -87,9 +91,13 @@
 					        </div>
 					        <div class="modal-footer">
 					          <button id="loginButton" type="button" class="btn btn-blue">Submit</button>
+					          <div class="popup1">
+					          <span id="close">&times;</span>
+					          <p>You have logged in!</p>
+					          </div>
 					        </div>
 					        <div>
-					          <button id="lostPasswordBtn" type="button" class="btn btn-link">Lost Password?</button>
+					          <button id="lostPasswordBtn" type="button" class="btn btn-link">Are you logged in?</button>
 					        </div>
 					      </div>
 					    </div>
@@ -116,8 +124,12 @@
 					  });
 
 					  $('#loginForm').trigger("reset");
-
-
+					$(document).ready(function(){
+						$("#lostPasswordBtn").on('click', function(){
+							$(".popup1").fadeIn('slow');
+						});
+					});
+					
 					});
 
 				</script>
