@@ -102,22 +102,22 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 
-// to know that your node server.js is running
-// app.listen( port, function(err) {  
-//   if (err) {
-//     return console.log('something bad happened', err)
-//   }
-//   console.log(`Magic is happening on ${port}`) // also can use + port (the variable/const)
-// });
-
-
-// heroku port
-app.listen( process.env.PORT || 5000, function(err) {  
+// server.js port
+app.listen( port, function(err) {  
   if (err) {
     return console.log('something bad happened', err)
   }
-  console.log(`Magic is happening on ${process.env.PORT}`) 
+  console.log(`Magic is happening on ${port}`) // also can use + port (the variable/const)
 });
+
+
+// heroku port
+// app.listen( process.env.PORT || 5000, function(err) {  
+//   if (err) {
+//     return console.log('something bad happened', err)
+//   }
+//   console.log(`Magic is happening on ${process.env.PORT}`) 
+// });
 
 // connecting to MongoDB
 mongoose.connect('mongodb://heroku_b4j2nktr:gnj5m6pb65s7su7gtaj1ldf8mh@ds153732.mlab.com:53732/heroku_b4j2nktr', function (error) {
@@ -163,11 +163,16 @@ app.get('/all-accounts', function(request, response) {
 // new MongoDB schema for allEvent
 eventSchema = new mongoose.Schema({
 		title		: String,
-		type		: [String],
+		type 		: [String],
 		description	: String,
-		location	: { street: String, city: String, state: String, zip: String },
-		date 		: { startDate: String, endDate: String },
-		time 		: { startTime: String, endTime: String },
+		street 		: String,
+		city 		: String,
+		state 		: String, 
+		zip			: String,
+		startDate	: String, 
+		endDate		: String,
+		startTime	: String, 
+		endTime		: String,
 		ageRestriction: String,
 		website		: String,
 		admission 	: String,
@@ -179,9 +184,13 @@ var Events = mongoose.model('events', eventSchema);
 
 // grab the event collection from MongoDB
 app.get('/all-event', function(request, response) {  
- 	Events.find( function(){
- 		response.json(Events);
- 	});
+ 	Events.find({},function(err,Events){
+		if(err){
+			console.log(err)
+		}else{
+			response.json(Events);
+		}
+	});
 });
 
 

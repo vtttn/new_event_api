@@ -225,10 +225,10 @@
 
 <script type="text/javascript">
 
-	// var URL = localhost:3000;
-	var URL = fleurish.herokuapp.com;
+	var URL = 'http://localhost:3000';
+	// var URL = 'fleurish.herokuapp.com';
 
-	// create a new account
+// create a new account
 
 	$('#createAccount').click(function(){
 	    var createAccount = {
@@ -247,25 +247,26 @@
 
 //  get all accounts
 
-	$.get('/all-accounts', function(data){
-		var el ="";
-		for ( i = 0; i < data.length; i++){
+	// $.get(URL+'/all-accounts', function(data){
+	// 	var el ="";
+	// 	for ( i = 0; i < data.length; i++){
 
-			el+="<h4>"+data[i].firstName+"</h4><h5>"+data[i].lastName+"</h5><p>"+data[i].signInEmail+"</p><p>"+data[i].password+"</p><p>"+data[i].confirmPassword+"</p>";
-		}
+	// 		el+="<h4>"+data[i].firstName+"</h4><h5>"+data[i].lastName+"</h5><p>"+data[i].signInEmail+"</p><p>"+data[i].password+"</p><p>"+data[i].confirmPassword+"</p>";
+	// 	}
 
-		$('#accounts').append(el);
+	// 	$('#accounts').append(el);
 
- 		// $('#accounts').append(JSON.stringify(data))
-	});
+	// });
+
+
 
 // get all data
 
-	$.get('http://localhost:3000/all-event', function(data){
+	$.get(URL+'/all-event', function(data){
 		var el ="";
 		for( i = 0; i < data.length; i++){
 
-		el+="<h3>"+data[i].title+"</h3><p><span class='label label-default'><a href=#>"+data[i].type[0]+"</a></span> <span class='label label-default'>"+data[i].type[1]+"</span> <span class='label label-default'>"+data[i].type[2]+"</span> <span class='label label-default'>"+data[i].type[3]+"</span> <span class='label label-default'>"+data[i].type[4]+"</span> <span class='label label-default'>"+data[i].type[5]+"</span> <span class='label label-default'>"+data[i].type[6]+"</span> <span class='label label-default'>"+data[i].type[7]+"</span></p><p>"+data[i].description+"</p><p>"+data[i].location.street+"<br>"+data[i].location.city+", "+data[i].location.state+" "+data[i].location.zip+"</p><p>"+data[i].date.startDate+" - "+data[i].date.endDate+"</p><p>"+data[i].time.startTime+" to "+data[i].time.endTime+"</p><p>Age Restriction: "+data[i].ageRestriction+"</p><p>"+data[i].website+"</p><p>Admission Price: $"+data[i].admission+"</p><p>Photos: "+data[i].photos+"</p><p>Fleurs: "+data[i].fleur+"</p>";
+		el+="<div class='panel panel-default'><div class='panel-heading'><h3 class='panel-title'>"+data[i].title+"</h3></div><div class='panel-body'><p>"+data[i].description+"</p><p>"+data[i].street+"<br>"+data[i].city+", "+data[i].state+" "+data[i].zip+"</p><p>"+data[i].startDate+" - "+data[i].endDate+"</p><p>"+data[i].startTime+" to "+data[i].endTime+"</p><p>Age Restriction: "+data[i].ageRestriction+"</p><p>"+data[i].website+"</p><p>Admission Price: $"+data[i].admission+"</p><p>Photos: "+data[i].photos+"</p><p>Fleurs: "+data[i].fleur+"</p></div><div class='panel-footer'><p><span class='label label-default'>"+data[i].type[0]+"</span> <span class='label label-default'>"+data[i].type[1]+"</span> <span class='label label-default'>"+data[i].type[2]+"</span> <span class='label label-default'>"+data[i].type[3]+"</span> <span class='label label-default'>"+data[i].type[4]+"</span> <span class='label label-default'>"+data[i].type[5]+"</span> <span class='label label-default'>"+data[i].type[6]+"</span> <span class='label label-default'>"+data[i].type[7]+"</span></p></div></div>";
 		
 			// trying to figure out how to hide the undefined type of event tags
 			for(a = 0; a < 7; a++){
