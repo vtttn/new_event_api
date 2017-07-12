@@ -288,6 +288,67 @@
     	})
   	})
 
+$('#loginButton').click(function(){
+					  
+					var loginForm=[
+					{
+					  "email1": "",
+					  "passWord1": "",
+					  }
+					];
+					  
+					  console.log($('#email1').val());
+					  console.log($('#passWord1').val());
+
+					  $.post('url', loginForm, function(err,res){
+
+					  });
+
+					  $('#loginForm').trigger("reset");
+
+					$(document).ready(function(){
+						$("#lostPasswordBtn").on('click', function(){
+							$(".popup1").fadeIn('slow');
+						});
+					});
+
+
+					});
+
+
+	$('#createProfile').click(function(){
+						  
+						var signUpForm=[
+						{
+						  "first_name": "",
+						  "last_name": "",
+						  "email2": "",
+						  "createPassword1": "",
+						  "retypePassword1": "",
+						  }
+						];
+						  
+						  console.log($('#first_name').val());
+						  console.log($('#last_name').val());
+						  console.log($('#email2').val());
+						  console.log($('#createPassword1').val());
+						  console.log($('#retypePassword1').val());
+
+						  $.post('url', signUpForm, function(err,res){
+
+						  });
+
+						  $('#signUpForm').trigger("reset");
+
+						  $(document).ready(function(){
+							$("#verifyCreation").on('click', function(){
+							$(".popup2").fadeIn('slow');
+								});
+						  });
+
+
+						});
+
 
 
 
