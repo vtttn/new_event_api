@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-	<title>New Orleans Event Mapper</title>
+	<title>FLEURISH - NOLA Events</title>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -56,11 +56,10 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			  <ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Browse Events</a></li>
-				<li><a href="#">Create Event</a></li>
+				<li><a href="browse.html">Browse Events</a></li>
+				<li><a href="newevent.html">Create Event</a></li>
 			<!-- start Login Popup -->
 				<li><a id="modal1" href="#" data-toggle="modal" data-target="#bannerformmodal">Log In</a></li>
-
 					<div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
 					<div class="modal-dialog modal-sm">
 						<div class="modal-content">
@@ -75,14 +74,14 @@
 								<div class="form-group">
 								  <div class="input-group">                               
 									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-									<input id="email1" type="text" class="form-control" placeholder="Email" name="email1" required onchange="validateEmailAdd();"/>
+									<input id="loginEmail" type="text" class="form-control" placeholder="Email"/>
 								  </div>
 								</div>
 
 								<div class="form-group">
 								  <div class="input-group">                               
 									<span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
-									<input id="passWord1" type="text" class="form-control" placeholder="Password" name="passwordLogIn" onchange="validatePassword();"/>
+									<input id="loginPassword" type="text" class="form-control" placeholder="Password"/>
 								  </div>
 								</div>
 							  
@@ -127,42 +126,42 @@
 								  <div class="form-group">
 									<div class="input-group">                               
 									  <span class="input-group-addon"><i class="fa fa-paw"></i></span>
-									  <input id="first_name" type="text" class="form-control" placeholder="First Name" name="first_name" onsubmit="validateForm();"/>
+									  <input id="firstName" type="text" class="form-control" placeholder="First Name"/>
 									</div>
 								  </div>
 
 								  <div class="form-group">
 									<div class="input-group">                               
 									  <span class="input-group-addon"><i class="fa fa-paw"></i></span>
-									  <input id="last_name" type="text" class="form-control" placeholder="Last Name" name="last_name" onsubmit="validateForm();"/>
+									  <input id="lastName" type="text" class="form-control" placeholder="Last Name"/>
 									</div>
 								  </div>
 								  
 								  <div class="form-group">
 									<div class="input-group">                               
 									  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-									  <input id="email2" type="text" class="form-control" placeholder="Email" name="email2" onchange="validateEmailAdd();"/>
+									  <input id="signInEmail" type="text" class="form-control" placeholder="Email"/>
 									</div>
 								  </div>
 								  
 								  <div class="form-group">
 									<div class="input-group">                               
 									  <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
-									  <input id="createPassword1" type="text" class="form-control" placeholder="Create Password" name="createPassword1" onchange="validatePassword();"/>
+									  <input id="createPassword" type="text" class="form-control" placeholder="Create Password"/>
 									</div>
 								  </div>
 								  
 								  <div class="form-group">
 									<div class="input-group">                               
 									  <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
-									  <input id="retypePassword1" type="text" class="form-control" placeholder="Retype Password" name="retypePassword1" onchange="validatePassword();"/>
+									  <input id="retypePassword" type="text" class="form-control" placeholder="Retype Password" />
 									</div>
 								  </div>
 								</form>
 								</div>
 
 							  <div class="modal-footer">
-								<button id="createProfile" type="button" class="btn btn-blue">Create Your Profile</button>
+								<button id="createAccount" type="button" class="btn btn-blue">Create Your Profile</button>
 								<button id="verifyCreation" type="button" class="btn btn-link">Has your profile been created?</button>
 									<div class="popup2">
 										<span id="close">&times;</span>
@@ -176,8 +175,8 @@
 
 			
 					<!-- END OF FORM POP-UPS -->
-				<li><a href="#">About/Contact</a></li>
-				<li><a href="#">Get the App</a></li>
+				<li><a href="about.html">About/Contact</a></li>
+				<li><a href="getApp.html">Get the App</a></li>
 			  </ul>
 			</div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
@@ -257,9 +256,28 @@
 <!-- START OF SCRIPT -->
 	<script>
 
-	// var URL = localhost:3000;
+	var URL = 'http://localhost:3000';
 	// var URL = event-nola.herokuapp.com;
 	// var url = prod-app.heroku.com;
+
+
+	 $('#createAccount').click(function(){
+	    var createAccount = {
+	      "firstName": $('#firstName').val(),
+	      "lastName": $('#lastName').val(),
+	      "signInEmail": $('#signInEmail').val(),
+	      "password": $('#createPassword').val(),
+	      "confirmPassword": $('#retypePassword').val()
+	    }
+
+    	$.post(URL+'/create-Account', createAccount, function(err,response){
+    		createAccount;
+    	})
+
+    	$('#createAccount').trigger("reset");
+
+  	})
+
 
 
 
@@ -282,21 +300,6 @@
   
 	// });
 
-
-
-	  $('#createAccount').click(function(){
-		var createAccount = {
-		  "firstName": $('#firstName').val(),
-		  "lastName": $('#lastName').val(),
-		  "signInEmail": $('#signInEmail').val(),
-		  "password": $('#createPassword').val(),
-		  "confirmPassword": $('#retypePassword').val()
-		}
-
-		$.post('/create-Account', createAccount, function(err,response){
-			createAccount;
-			})
-		})
 
 $('#loginButton').click(function(){
 					  
@@ -326,40 +329,6 @@ $('#loginButton').click(function(){
 					});
 
 
-	$('#createProfile').click(function(){
-						  
-						var signUpForm=[
-						{
-						  "first_name": "",
-						  "last_name": "",
-						  "email2": "",
-						  "createPassword1": "",
-						  "retypePassword1": "",
-						  }
-						];
-						  
-						  console.log($('#first_name').val());
-						  console.log($('#last_name').val());
-						  console.log($('#email2').val());
-						  console.log($('#createPassword1').val());
-						  console.log($('#retypePassword1').val());
-
-						  $.post('url', signUpForm, function(err,res){
-
-						  });
-
-						  $('#signUpForm').trigger("reset");
-
-						  $(document).ready(function(){
-							$("#verifyCreation").on('click', function(){
-							$(".popup2").fadeIn('slow');
-								});
-						  });
-
-
-						});
-
-
 		$('#loginButton').click(function(){
 		  
 			var loginForm=[
@@ -368,15 +337,14 @@ $('#loginButton').click(function(){
 				  "passWord1": "",
 				}
 			];
-		  
-		  console.log($('#email1').val());
-		  console.log($('#passWord1').val());
 
 		  $.post('url', loginForm, function(err,res){
 
 		  });
 
 		$('#loginForm').trigger("reset");
+
+
 		
 		$(document).ready(function(){
 			$("#lostPasswordBtn").on('click', function(){
@@ -384,35 +352,6 @@ $('#loginButton').click(function(){
 			});
 		});
 		});
-
-
-		$('#createProfile').click(function(){
-			  
-			var signUpForm=[
-			{
-			  "first_name": "",
-			  "last_name": "",
-			  "email2": "",
-			  "createPassword1": "",
-			  "retypePassword1": "",
-			  }
-			];
-			  
-			  console.log($('#first_name').val());
-			  console.log($('#last_name').val());
-			  console.log($('#email2').val());
-			  console.log($('#createPassword1').val());
-			  console.log($('#retypePassword1').val());
-
-			  $.post('url', signUpForm, function(err,res){
-
-			  });
-
-			  $('#signUpForm').trigger("reset");
-
-
-			});
-
 
 	
 	</script>
