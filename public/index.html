@@ -18,20 +18,10 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-	<!-- Jquery script -->
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 	<!-- custom css -->
 	<link rel="stylesheet" type="text/css" href="style.css">
-
-	<!-- custom script -->
-	<script type="text/javascript" src="script.js"></script>
 
 </head>
 
@@ -50,7 +40,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <a class="navbar-brand" href="#">Brand</a>
+			  <a class="navbar-brand" href="index.html">FLEURISH</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -254,104 +244,24 @@
 
 
 <!-- START OF SCRIPT -->
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- Jquery script -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<!-- Bootstrap script -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
+	<!-- custom script -->
+	<script type="text/javascript" src="script.js"></script>
+
+
+
+	<!-- PAGE SCRIPT -->
 	<script>
-
-	var URL = 'http://localhost:3000';
-	// var URL = event-nola.herokuapp.com;
-	// var url = prod-app.heroku.com;
-
-
-	 $('#createAccount').click(function(){
-	    var createAccount = {
-	      "firstName": $('#firstName').val(),
-	      "lastName": $('#lastName').val(),
-	      "signInEmail": $('#signInEmail').val(),
-	      "password": $('#createPassword').val(),
-	      "confirmPassword": $('#retypePassword').val()
-	    }
-
-    	$.post(URL+'/create-Account', createAccount, function(err,response){
-    		createAccount;
-    	})
-
-    	$('#createAccount').trigger("reset");
-
-  	})
-
-
-
-
-	// $.get('http://'+URL+'/all-event', function(data){
-	// 	var el ="";
-	// 	for( i = 0; i < data.length; i++){
-
-	// 	el+="<h3>"+data[i].title+"</h3><p><span class='label label-default'><a href=#>"+data[i].type[0]+"</a></span> <span class='label label-default'>"+data[i].type[1]+"</span> <span class='label label-default'>"+data[i].type[2]+"</span> <span class='label label-default'>"+data[i].type[3]+"</span> <span class='label label-default'>"+data[i].type[4]+"</span> <span class='label label-default'>"+data[i].type[5]+"</span> <span class='label label-default'>"+data[i].type[6]+"</span> <span class='label label-default'>"+data[i].type[7]+"</span></p><p>"+data[i].description+"</p><p>"+data[i].location.street+"<br>"+data[i].location.city+", "+data[i].location.state+" "+data[i].location.zip+"</p><p>"+data[i].date.startDate+" - "+data[i].date.endDate+"</p><p>"+data[i].time.startTime+" to "+data[i].time.endTime+"</p><p>Age Restriction: "+data[i].ageRestriction+"</p><p>"+data[i].website+"</p><p>Admission Price: $"+data[i].admission+"</p><p>Photos: "+data[i].photos+"</p><p>Flaggers: "+data[i].flag+"</p>";
-		
-	// 		// trying to figure out how to hide the undefined type of event tags
-	// 		for(a = 0; a < 7; a++){
-	// 			if(data[i].type[a] === undefined){
-	// 				$('span').addClass('hiddenTag');
-	// 			}
-	// 		}
-
-	// 	} 
-	
-	// 	$('#eventList').append(el);
-  
-	// });
-
-
-$('#loginButton').click(function(){
-					  
-					var loginForm=[
-					{
-					  "email1": "",
-					  "passWord1": "",
-					  }
-					];
-					  
-					  console.log($('#email1').val());
-					  console.log($('#passWord1').val());
-
-					  $.post('url', loginForm, function(err,res){
-
-					  });
-
-					  $('#loginForm').trigger("reset");
-
-					$(document).ready(function(){
-						$("#lostPasswordBtn").on('click', function(){
-							$(".popup1").fadeIn('slow');
-						});
-					});
-
-
-					});
-
-
-		$('#loginButton').click(function(){
-		  
-			var loginForm=[
-				{
-				  "email1": "",
-				  "passWord1": "",
-				}
-			];
-
-		  $.post('url', loginForm, function(err,res){
-
-		  });
-
-		$('#loginForm').trigger("reset");
-
-
-		
-		$(document).ready(function(){
-			$("#lostPasswordBtn").on('click', function(){
-				$(".popup1").fadeIn('slow');
-			});
-		});
-		});
 
 	
 	</script>
