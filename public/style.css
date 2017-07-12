@@ -41,3 +41,11 @@
 .createForm {
 	border-radius: 0px;
 }
+
+.popup1 {
+	display: none;
+}
+
+.popup2 {
+	display: none;
+}
