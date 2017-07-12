@@ -50,15 +50,16 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <a class="navbar-brand" href="index.html">FLEURISH EVENTS</a>
+			  <a class="navbar-brand" href="#">Brand</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			  <ul class="nav navbar-nav navbar-right">
-				<li><a href="browse.html">Browse Events</a></li>
-				<li><a href="newevent.html">Create Event</a></li>
+				<li><a href="#">Browse Events</a></li>
+				<li><a href="#">Create Event</a></li>
 			<!-- start Login Popup -->
+			<form id="loginForm" action="">
 				<li><a id="modal1" href="#" data-toggle="modal" data-target="#bannerformmodal">Log In</a></li>
 					<div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
 					<div class="modal-dialog modal-sm">
@@ -85,7 +86,7 @@
 					          </form>
 					        </div>
 					        <div class="modal-footer">
-					          <button type="button" class="btn btn-blue">Submit</button>
+					          <button id="loginButton" type="button" class="btn btn-blue">Submit</button>
 					        </div>
 					        <div>
 					          <button id="lostPasswordBtn" type="button" class="btn btn-link">Lost Password?</button>
@@ -94,7 +95,34 @@
 					    </div>
 					  </div>
 					</div>
+
+				</form>
+				<script>
+
+					$('#loginButton').click(function(){
+					  
+					var loginForm=[
+					{
+					  "email1": "",
+					  "passWord1": "",
+					  }
+					];
+					  
+					  console.log($('#email1').val());
+					  console.log($('#passWord1').val());
+
+					  $.post('url', loginForm, function(err,res){
+
+					  });
+
+					  $('#loginForm').trigger("reset");
+
+
+					});
+
+				</script>
 			<!-- start Sign Up Popup -->
+				<form id="signUpForm" action="">
 					<li><a id="modal2" href="#" data-toggle="modal" data-target="#bannerformmodal2">Sign Up</a></li>
 					<div class="modal fade bannerformmodal" tabindex="-2" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal2">
 					  <div class="modal-dialog modal-sm">
@@ -110,46 +138,77 @@
 					              <div class="form-group">
 					                <div class="input-group">                               
 					                  <span class="input-group-addon"><i class="fa fa-paw"></i></span>
-					                  <input id="firstName" type="text" class="form-control" placeholder="First Name" name="first_name"/>
+					                  <input id="first_name" type="text" class="form-control" placeholder="First Name" name="first_name" onsubmit="validateForm();"/>
 					                </div>
 					              </div>
 					              <div class="form-group">
 					                <div class="input-group">                               
 					                  <span class="input-group-addon"><i class="fa fa-paw"></i></span>
-					                  <input id="lastName" type="text" class="form-control" placeholder="Last Name" name="last_name" />
+					                  <input id="last_name" type="text" class="form-control" placeholder="Last Name" name="last_name" onsubmit="validateForm();"/>
 					                </div>
 					              </div>
 					              <div class="form-group">
 					                <div class="input-group">                               
 					                  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-					                  <input id="signInEmail" type="text" class="form-control" placeholder="Email" name="email1"/>
+					                  <input id="email2" type="text" class="form-control" placeholder="Email" name="email2" onchange="validateEmailAdd();"/>
 					                </div>
 					              </div>
 					              <div class="form-group">
 					                <div class="input-group">                               
 					                  <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
-					                  <input id="createPassword" type="text" class="form-control" placeholder="Create Password" name="createPassword1"/>
+					                  <input id="createPassword1" type="text" class="form-control" placeholder="Create Password" name="createPassword1" onchange="validatePassword();"/>
 					                </div>
 					              </div>
 					              <div class="form-group">
 					                <div class="input-group">                               
 					                  <span class="input-group-addon"><i class="fa fa-sign-in"></i></span>
-					                  <input id="retypePassword" type="text" class="form-control" placeholder="Retype Password" name="retypePassword1"/>
+					                  <input id="retypePassword1" type="text" class="form-control" placeholder="Retype Password" name="retypePassword1" onchange="validatePassword();"/>
 					                </div>
 					              </div>
+					              
 					  
-					            </form>
-					          </div>
+					  			</div>
 					          <div class="modal-footer">
-					            <button id="createAccount" type="button" class="btn btn-blue">Create Your Profile</button>
+					            <button id="createProfile" type="button" class="btn btn-blue">Create Your Profile</button>
 					          </div>        
 					        </div>
 					      </div>
 					    </div>
 					</div>
+					</form>
+					<script>
+
+						$('#createProfile').click(function(){
+						  
+						var signUpForm=[
+						{
+						  "first_name": "",
+						  "last_name": "",
+						  "email2": "",
+						  "createPassword1": "",
+						  "retypePassword1": "",
+						  }
+						];
+						  
+						  console.log($('#first_name').val());
+						  console.log($('#last_name').val());
+						  console.log($('#email2').val());
+						  console.log($('#createPassword1').val());
+						  console.log($('#retypePassword1').val());
+
+						  $.post('url', signUpForm, function(err,res){
+
+						  });
+
+						  $('#signUpForm').trigger("reset");
+
+
+						});
+
+					</script>
 					<!-- END OF FORM POP-UPS -->
-				<li><a href="about.html">About/Contact</a></li>
-				<li><a href="getApp.html">Get the App</a></li>
+				<li><a href="#">About/Contact</a></li>
+				<li><a href="#">Get the App</a></li>
 			  </ul>
 			</div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
