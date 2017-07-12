@@ -59,12 +59,8 @@
 				<li><a href="#">Browse Events</a></li>
 				<li><a href="#">Create Event</a></li>
 			<!-- start Login Popup -->
-<<<<<<< HEAD
-			<form id="loginForm" action="">
-=======
-			<form id="loginForm" action="" >
->>>>>>> e3fc452f1a4dee6870d71d1775b77b069381d878
-				<li><a id="modal1" href="#" data-toggle="modal" data-target="#bannerformmodal">Log In</a></li>
+		<li>
+				<a id="modal1 loginForm" href="#" data-toggle="modal" data-target="#bannerformmodal">Log In</a></li>
 					<div class="modal fade bannerformmodal" tabindex="-1" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal">
 					<div class="modal-dialog modal-sm">
 					    <div class="modal-content">
@@ -103,39 +99,9 @@
 					    </div>
 					  </div>
 					</div>
-
-				</form>
-				<script>
-
-					$('#loginButton').click(function(){
-					  
-					var loginForm=[
-					{
-					  "email1": "",
-					  "passWord1": "",
-					  }
-					];
-					  
-					  console.log($('#email1').val());
-					  console.log($('#passWord1').val());
-
-					  $.post('url', loginForm, function(err,res){
-
-					  });
-
-					  $('#loginForm').trigger("reset");
-					$(document).ready(function(){
-						$("#lostPasswordBtn").on('click', function(){
-							$(".popup1").fadeIn('slow');
-						});
-					});
-					
-					});
-
-				</script>
+				</li>
 			<!-- start Sign Up Popup -->
-				<form id="signUpForm" action="">
-					<li><a id="modal2" href="#" data-toggle="modal" data-target="#bannerformmodal2">Sign Up</a></li>
+					<li><a id="modal2 signUpForm" href="#" data-toggle="modal" data-target="#bannerformmodal2">Sign Up</a></li>
 					<div class="modal fade bannerformmodal" tabindex="-2" role="dialog" aria-labelledby="bannerformmodal" aria-hidden="true" id="bannerformmodal2">
 					  <div class="modal-dialog modal-sm">
 					      <div class="modal-content">
@@ -187,37 +153,7 @@
 					      </div>
 					    </div>
 					</div>
-					</form>
-					<script>
-
-						$('#createProfile').click(function(){
-						  
-						var signUpForm=[
-						{
-						  "first_name": "",
-						  "last_name": "",
-						  "email2": "",
-						  "createPassword1": "",
-						  "retypePassword1": "",
-						  }
-						];
-						  
-						  console.log($('#first_name').val());
-						  console.log($('#last_name').val());
-						  console.log($('#email2').val());
-						  console.log($('#createPassword1').val());
-						  console.log($('#retypePassword1').val());
-
-						  $.post('url', signUpForm, function(err,res){
-
-						  });
-
-						  $('#signUpForm').trigger("reset");
-
-
-						});
-
-					</script>
+				</li>
 					<!-- END OF FORM POP-UPS -->
 				<li><a href="#">About/Contact</a></li>
 				<li><a href="#">Get the App</a></li>
@@ -338,10 +274,62 @@
 
     	$.post('/create-Account', createAccount, function(err,response){
     		createAccount;
-    	})
-  	})
+    		})
+  		})
 
 
+		$('#loginButton').click(function(){
+		  
+			var loginForm=[
+				{
+				  "email1": "",
+				  "passWord1": "",
+			  	}
+			];
+		  
+		  console.log($('#email1').val());
+		  console.log($('#passWord1').val());
+
+		  $.post('url', loginForm, function(err,res){
+
+		  });
+
+		$('#loginForm').trigger("reset");
+		
+		$(document).ready(function(){
+			$("#lostPasswordBtn").on('click', function(){
+				$(".popup1").fadeIn('slow');
+			});
+		});
+		});
+
+
+		$('#createProfile').click(function(){
+			  
+			var signUpForm=[
+			{
+			  "first_name": "",
+			  "last_name": "",
+			  "email2": "",
+			  "createPassword1": "",
+			  "retypePassword1": "",
+			  }
+			];
+			  
+			  console.log($('#first_name').val());
+			  console.log($('#last_name').val());
+			  console.log($('#email2').val());
+			  console.log($('#createPassword1').val());
+			  console.log($('#retypePassword1').val());
+
+			  $.post('url', signUpForm, function(err,res){
+
+			  });
+
+			  $('#signUpForm').trigger("reset");
+
+
+			});
 
 
 	
