@@ -1,3 +1,22 @@
+@font-face { 
+	font-family: 'andara-script'; 
+	src: url('andara-script.ttf') format('truetype'); 
+} 
+
+
+body { 
+	padding-top: 70px; 
+	background-color: #70C1B0; 
+}
+
+body {
+  padding-right: 0 !important;
+}
+
+.navbar .navbar-toggle{
+	border: none;
+}
+
 .filterHeader {
 	height: 100vh; 
 	/*vh means viewport height*/
@@ -6,13 +25,22 @@
 	background-size: cover;
 	background-position: center;
 	background-color: #43B6A1;
+	margin-top: -70px;
 }
 
 img.indexLogo {
 	height: 250px;
 	width: auto;
 	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
+}
+
+.fleurishingCTA {
+	font-family: 'andara-script', Arial, sans-serif;
+}
+
+.indexText{
+	margin-bottom: 30px;
 }
 
 .formStretch {
@@ -54,6 +82,23 @@ img.indexLogo {
 	outline: 0px;
 }
 
+.filterPanelGroup{
+	padding-top: 70px;
+}
+
+.filterPanel{
+	border: none;
+	background-image: none;
+	background-repeat: none;
+}
+
+.filterPanel>.panel-heading {
+	border: none;
+	background-image: none;
+	background-repeat: none;
+}
+
+
 .radioline{
 	padding-top: 0px !important;
 }
@@ -74,4 +119,3 @@ img.indexLogo {
 .popup2 {
 	display: none;
 }
-
