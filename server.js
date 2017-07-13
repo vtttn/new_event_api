@@ -12,12 +12,12 @@ app.use(bodyParser.json());
 
 
 // server.js port
-app.listen( port, function(err) {  
-  if (err) {
-    return console.log('something bad happened', err)
-  }
-  console.log(`Magic is happening on ${port}`) // also can use + port (the variable/const)
-});
+// app.listen( port, function(err) {  
+//   if (err) {
+//     return console.log('something bad happened', err)
+//   }
+//   console.log(`Magic is happening on ${port}`) // also can use + port (the variable/const)
+// });
 
 
 heroku port
