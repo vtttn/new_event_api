@@ -121,3 +121,18 @@ img.indexLogo {
 .popup2 {
 	display: none;
 }
+
+.alert {
+	display: none;
+}
+
+
+/*#contactUsForm {
+	margin-left: 400px;
+	margin-right: 400px;
+
+}*/
+
+#fleurishCenter {
+	text-align: center;
+}

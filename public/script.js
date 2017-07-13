@@ -22,31 +22,47 @@ var URL = 'https://fleurish.herokuapp.com';
 
 $('#createEvent').click(function(){
 	var createEvent = {
-		"title"					: $('#newEventTitle').val(),
-		"description" 	: $('#newEventDes').val(),
-		"type"					: $('#newEventType').val(),
-		"website"				: $('#newEventWebsite').val(),
-		"street" 				: $('#newEventStreet').val(),
-		"city" 					: $('#newEventCity').val(),
-		"state" 				: $('#newEventState').val(), 
-		"zip"						: $('#newEventZip').val(),
+		"title"				: $('#newEventTitle').val(),
+		"description" 		: $('#newEventDes').val(),
+		"type"				: $('#newEventType').val(),
+		"website"			: $('#newEventWebsite').val(),
+		"street" 			: $('#newEventStreet').val(),
+		"city" 				: $('#newEventCity').val(),
+		"state" 			: $('#newEventState').val(), 
+		"zip"				: $('#newEventZip').val(),
 		"startDate"			: $('#newEventStartDate').val(), 
-		"endDate"				: $('#newEventEndDate').val(),
+		"endDate"			: $('#newEventEndDate').val(),
 		"startTime"			: $('#newEventStartTime').val(), 
-		"endTime"				: $('#newEventEndTime').val(),
-		"ageRestriction": $('#newEventAgeRes').val(),
+		"endTime"			: $('#newEventEndTime').val(),
+		"ageRestriction" 	: $('#newEventAgeRes').val(),
 		"admission" 		: $('#newEventAdmission').val(),
-		"fleur"					: $('#newEventFleur').val(),
+		"fleur"				: $('#newEventFleur').val(),
 	}
 
 	$.post(URL+'/create-Event', createEvent, function(err,response){
 		createEvent;
+
+		$('#newEventTitle').val() == $('#newEventTitle').val("");
+		$('#newEventDes').val() == $('#newEventDes').val("");
+		$('#newEventType').val() == $('#newEventType').val("");
+		$('#newEventWebsite').val() == $('#newEventWebsite').val("");
+		$('#newEventStreet').val() == $('#newEventStreet').val("");
+		$('#newEventCity').val() == $('#newEventCity').val("");
+		$('#newEventState').val() == $('#newEventState').val("");
+		$('#newEventZip').val() == $('#newEventZip').val("");
+		$('#newEventStartDate').val() == $('#newEventStartDate').val("");
+		$('#newEventEndDate').val() == $('#newEventEndDate').val("");
+		$('#newEventStartTime').val() == $('#newEventStartTime').val("");
+		$('#newEventEndTime').val() == $('#newEventEndTime').val("");
+		$('#newEventAgeRes').val() == $('#newEventAgeRes').val("");
+		$('#newEventAdmission').val() == $('#newEventAdmission').val("");
+		$('#newEventFleur').val() == $('#newEventFleur').val("");
+
+
 	})
 
-	console.log(createEvent);
-
-	// $('#createEvent').trigger("reset");
-
+		$('.alert').toggle();
+		
 })
 
 
