@@ -136,3 +136,15 @@ img.indexLogo {
 #fleurishCenter {
 	text-align: center;
 }
+
+.getApp {
+	background-image: url(img/getApp1.jpg);
+	height: 500px;
+	background-size: cover;
+	background-position: center;
+	width: auto;
+}
+
+.getAppbody {
+	background-color: #D69379;
+}
