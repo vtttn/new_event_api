@@ -3,12 +3,16 @@
 	/*vh means viewport height*/
 	background-color: #e0e0e0;
 	width:auto;
-	background-image: url(../img/cover.png);
 	background-size: cover;
 	background-position: center;
+	background-color: #43B6A1;
 }
-.hideIt{
-	display: none;
+
+img.indexLogo {
+	height: 250px;
+	width: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 .formStretch {
@@ -21,12 +25,33 @@
 
 .filterSearchForm {
 	border: none;
-	border-bottom: 2px solid #555;
-	border-radius: 0px;
+	border-radius: 3px !important;
 	background-color: rgba(255,255,255,.5);
 	box-shadow: none;
 	transition: none;
 	color: #000;
+}
+
+.filterbtn{
+	border-radius: 3px;
+	border: 1px solid rgba(255,255,255,.1);
+	background-color: rgba(255,255,255,.5);
+	background-image: none;
+	text-shadow: none;
+	color: #7E7E7E;
+}
+
+.filterbtn:hover,
+.filterbtn:active,
+.filterbtn:focus, 
+.filterbtn:active:focus,
+.filterbtn:active.focus,
+.filterbtn.active:focus {
+	background-color: rgba(255,255,255,.7);
+	border: 1px solid rgba(255,255,255,.1);
+	box-shadow: none;
+	border-color: rgba(255,255,255,.1);
+	outline: 0px;
 }
 
 .radioline{
@@ -49,3 +74,4 @@
 .popup2 {
 	display: none;
 }
+
