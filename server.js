@@ -5,19 +5,18 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
 
-
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json());
 
 
 // server.js port
-// app.listen( port, function(err) {  
-//   if (err) {
-//     return console.log('something bad happened', err)
-//   }
-//   console.log(`Magic is happening on ${port}`) // also can use + port (the variable/const)
-// });
+app.listen( port, function(err) {  
+  if (err) {
+    return console.log('something bad happened', err)
+  }
+  console.log(`Magic is happening on ${port}`) // also can use + port (the variable/const)
+});
 
 
 // heroku port
@@ -74,6 +73,7 @@ eventSchema = new mongoose.Schema({
 		title		: String,
 		type 		: [String],
 		description	: String,
+		website		: String,
 		street 		: String,
 		city 		: String,
 		state 		: String, 
@@ -83,9 +83,7 @@ eventSchema = new mongoose.Schema({
 		startTime	: String, 
 		endTime		: String,
 		ageRestriction: String,
-		website		: String,
 		admission 	: String,
-		photos 		: String,
 		fleur		: String,
 },{ collection: 'events'});
 
@@ -102,6 +100,15 @@ app.get('/all-event', function(request, response) {
 	});
 });
 
+// new event created + pushed into existing Events array in MongoDB
+app.post('/create-Event', function(request,response){
+	var createEvent = new Events(request.body);
+
+	createEvent.save(function(){
+		response.json(createEvent);
+	})
+
+});
 
 
 // define the folder that will be used for static assets

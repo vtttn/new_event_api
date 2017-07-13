@@ -1,9 +1,3 @@
-@font-face { 
-	font-family: 'andara-script'; 
-	src: url('andara-script.ttf') format('truetype'); 
-} 
-
-
 body { 
 	padding-top: 70px; 
 	background-color: #70C1B0; 

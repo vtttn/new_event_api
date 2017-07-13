@@ -171,13 +171,12 @@
 
 <!-- / form popup -->
 
-
-
+<!-- start new event form -->
 <div class="col-lg-offset-3 container">
 	<h1>Create A New Event</h1>
 </div>
 
-<!-- form -->
+<!-- event form -->
 <div class="container">
 		<form class="form-horizontal">
 		<!-- event title -->
@@ -196,15 +195,16 @@
 			</div>
 		<!-- event type --> 
 			<div class="form-group">
+				<label class="col-sm-offset-1 col-sm-2 control-label">Website</label>
+				<div class="col-sm-6">
+					<input type="text" class="form-control createForm" id="newEventWebsite" placeholder="Website">
+				</div>
+			</div>
+		<!-- event type --> 
+			<div class="form-group">
 				<label class="col-sm-offset-1 col-sm-2 control-label">Type</label>
 				<div class="col-sm-6">
-					<select class="form-control">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-					</select>
+					<input type="text" class="form-control createForm" id="newEventType" placeholder="Type of Event">
 				</div>
 			</div>
 
@@ -247,29 +247,31 @@
 		<!-- age restriction -->
 			<div class="form-group form-inline">
 				<label class="col-sm-offset-1 col-sm-2 control-label">Age Restriction</label>
-					<div class="radio col-sm-9 radioline">
-						<label class="radio-inline">
-								<input type="radio" name="inlineRadioOptions" id="ageResY" value="option1"> Yes
-						</label>
-						<label class="radio-inline ">
-							<input type="radio" name="inlineRadioOptions" id="ageResN" value="option2"> No
-						</label>
-					</div>
+					<div class="col-sm-2">
+					<input type="text" class="form-control createForm" id="newEventAgeRes" placeholder="Yes or No">
+				</div>
 			</div>
 		<!-- admission price -->
 			<div class="form-group">
 				<label class="col-sm-offset-1 col-sm-2 control-label">Admission Price</label>
-				<div class="col-sm-3 input-group adminAdd">
+				<div class="col-sm-4 input-group adminAdd">
 					<div class="input-group-addon createForm">$</div>
-						<input type="text" class="form-control createForm" id="admissionPrice" placeholder="Amount">
+						<input type="text" class="form-control createForm" id="newEventAdmission" placeholder="Amount">
 					<div class="input-group-addon createForm">.00</div>
 				</div>
 			</div>
 		<!-- photo upload -->
-			<div class="form-group">
+<!-- 			<div class="form-group">
 				<label class="col-sm-offset-1 col-sm-2 control-label">Photos</label>
 				<div class="col-sm-2">
 					<input type="file" id="uploadImg">
+				</div>
+			</div> -->
+		<!-- fleur -->
+			<div class="form-group form-inline">
+				<label class="col-sm-offset-1 col-sm-2 control-label">Fleur</label>
+					<div class="col-sm-4">
+					<input type="text" class="form-control createForm" id="newEventFleur" placeholder="Estimated # of eventgoers">
 				</div>
 			</div>
 
@@ -281,10 +283,8 @@
 			</div>
 
 		</form>
-
-
-
 </div>
+<!-- / new event form -->
 
 
 
