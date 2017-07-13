@@ -1,5 +1,5 @@
-var URL = 'http://localhost:3000';
-// var URL = 'http://fleurish.herokuapp.com';
+// var URL = 'http://localhost:3000';
+var URL = 'http://fleurish.herokuapp.com';
 
 // signUp
 
