@@ -89,7 +89,7 @@ $('#createEvent').click(function(){
 	});  
 
 
-	// get all data
+// get all data
 
 	$.get(URL+'/all-event', function(data){
 		var el ="";
@@ -112,7 +112,7 @@ $('#createEvent').click(function(){
 
 
 	
-// DATE PICKER
+// DATE PICKER INDEX
 	$( function() {
 		var dateFormat = "mm/dd/yy",
 			from = $( "#from" )
@@ -126,6 +126,43 @@ $('#createEvent').click(function(){
 					to.datepicker( "option", "minDate", getDate( this ) );
 				}),
 			to = $( "#to" ).datepicker({
+				defaultDate: null,
+				changeMonth: true,
+				changeYear: true,
+				numberOfMonths: 1
+			})
+			.on( "change", function() {
+				from.datepicker( "option", "maxDate", getDate( this ) );
+			});
+ 
+		function getDate( element ) {
+			var date;
+			try {
+				date = $.datepicker.parseDate( dateFormat, element.value );
+			} catch( error ) {
+				date = null;
+			}
+ 
+			return date;
+		}
+	} );
+
+
+
+// DATE PICKER BROWSE
+	$( function() {
+		var dateFormat = "mm/dd/yy",
+			from = $( "#fromBrowse" )
+				.datepicker({
+					defaultDate: null,
+					changeMonth: true,
+					changeYear: true,
+					numberOfMonths: 1
+				})
+				.on( "change", function() {
+					to.datepicker( "option", "minDate", getDate( this ) );
+				}),
+			to = $( "#toBrowse" ).datepicker({
 				defaultDate: null,
 				changeMonth: true,
 				changeYear: true,
