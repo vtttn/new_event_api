@@ -179,10 +179,11 @@
 <!-- start collapse filter -->
 	<div class="container"> <!-- start page container -->
 		<div class="panel-group filterPanelGroup col-lg-offset-1 col-lg-3 col-md-3 col-sm-12" id="accordion" role="tablist" aria-multiselectable="true">
+		<!-- Event Type Filter -->
 		  <div class="filterPanel panel panel-default">
 		    <div class="panel-heading" role="tab" id="headingOne">
 		      <h4 class="panel-title">
-		        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 		          Event Type
 		        </a>
 		      </h4>
@@ -193,6 +194,7 @@
 		      </div>
 		    </div>
 		  </div>
+		<!-- Location Filter -->
 		  <div class="filterPanel panel panel-default">
 		    <div class="panel-heading" role="tab" id="headingTwo">
 		      <h4 class="panel-title">
@@ -207,6 +209,7 @@
 		      </div>
 		    </div>
 		  </div>
+		<!-- Date Filter -->
 		  <div class="filterPanel panel panel-default">
 		    <div class="panel-heading" role="tab" id="headingThree">
 		      <h4 class="panel-title">
@@ -217,6 +220,7 @@
 		    </div>
 		    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 		      <div class="panel-body">
+		      <!-- Date Picker Form -->
 		        <div class="col-xs-5 col-md-12 col-lg-12">
 					<div class="input-group formStretch browseFilter">
 					  <input type="text" class="form-control" placeholder="from" id="fromBrowse">
@@ -228,12 +232,27 @@
 					</div>
 				  </div>
 				  <div class="col-xs-2 col-md-12 col-lg-12">
-				  <div class="form-group">
-				  	<span class="input-group-btn">
+				  	<div class="form-group">
+				  		<span class="input-group-btn">
 						<button class="btn btn-default browsefilterbtn" type="button">Go!</button>
-					  </span>
+					  	</span>
+				  	</div>
 				  </div>
-				  </div>
+		      </div>
+		    </div>
+		  </div>
+		<!-- Admission Price Filter -->
+		  <div class="filterPanel panel panel-default">
+		    <div class="panel-heading" role="tab" id="headingFour">
+		      <h4 class="panel-title">
+		        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+		          Admission Price
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+		      <div class="panel-body">
+		        filter by free or other values
 		      </div>
 		    </div>
 		  </div>

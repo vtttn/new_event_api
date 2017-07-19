@@ -1,5 +1,5 @@
-// var URL = 'http://localhost:3000';
-var URL = 'https://fleurish.herokuapp.com';
+var URL = 'http://localhost:3000';
+// var URL = 'https://fleurish.herokuapp.com';
 
 // signUp
 
@@ -115,7 +115,7 @@ $('#createEvent').click(function(){
 // DATE PICKER INDEX
 	$( function() {
 		var dateFormat = "mm/dd/yy",
-			from = $( "#from" )
+			from = $( "#from, #fromBrowse, #newEventStartDate" )
 				.datepicker({
 					defaultDate: null,
 					changeMonth: true,
@@ -125,7 +125,7 @@ $('#createEvent').click(function(){
 				.on( "change", function() {
 					to.datepicker( "option", "minDate", getDate( this ) );
 				}),
-			to = $( "#to" ).datepicker({
+			to = $( "#to, #toBrowse, #newEventEndDate" ).datepicker({
 				defaultDate: null,
 				changeMonth: true,
 				changeYear: true,
@@ -149,40 +149,51 @@ $('#createEvent').click(function(){
 
 
 
-// DATE PICKER BROWSE
-	$( function() {
-		var dateFormat = "mm/dd/yy",
-			from = $( "#fromBrowse" )
-				.datepicker({
-					defaultDate: null,
-					changeMonth: true,
-					changeYear: true,
-					numberOfMonths: 1
-				})
-				.on( "change", function() {
-					to.datepicker( "option", "minDate", getDate( this ) );
-				}),
-			to = $( "#toBrowse" ).datepicker({
-				defaultDate: null,
-				changeMonth: true,
-				changeYear: true,
-				numberOfMonths: 1
-			})
-			.on( "change", function() {
-				from.datepicker( "option", "maxDate", getDate( this ) );
-			});
+// // DATE PICKER BROWSE
+// 	$( function() {
+// 		var dateFormat = "mm/dd/yy",
+// 			from = $( "#fromBrowse" )
+// 				.datepicker({
+// 					defaultDate: null,
+// 					changeMonth: true,
+// 					changeYear: true,
+// 					numberOfMonths: 1
+// 				})
+// 				.on( "change", function() {
+// 					to.datepicker( "option", "minDate", getDate( this ) );
+// 				}),
+// 			to = $( "#toBrowse" ).datepicker({
+// 				defaultDate: null,
+// 				changeMonth: true,
+// 				changeYear: true,
+// 				numberOfMonths: 1
+// 			})
+// 			.on( "change", function() {
+// 				from.datepicker( "option", "maxDate", getDate( this ) );
+// 			});
  
-		function getDate( element ) {
-			var date;
-			try {
-				date = $.datepicker.parseDate( dateFormat, element.value );
-			} catch( error ) {
-				date = null;
-			}
+// 		function getDate( element ) {
+// 			var date;
+// 			try {
+// 				date = $.datepicker.parseDate( dateFormat, element.value );
+// 			} catch( error ) {
+// 				date = null;
+// 			}
  
-			return date;
-		}
-	} );
+// 			return date;
+// 		}
+// 	} );
+
+
+// Google Analytics 
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39799573-7', 'auto');
+  ga('send', 'pageview');
+
 
 
 
