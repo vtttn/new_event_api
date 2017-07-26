@@ -116,31 +116,32 @@ app.use(express.static('public'));
 
 
 // edit events and save to DB
+// app.post('/edit-event', function(request,response){
+// 	// Events.find(function(err,Events){
+// 	// 	console.log(request.body);
+// 	// })
+
+// 	console.log(request.body)
+// });
+
+
 app.post('/edit-event', function(request,response){
-	Events.find(function(err,Events){
-		console.log(request.body);
+	Events.find(request.body,function(err,Events){
+		if(err){
+			console.log("Error in edit event.")
+		}else{
+			Events.fleur = 36;
+			Events.save(function(err,response){
+				if(err){
+					console.log("Error in save event.")
+				}else{
+					response.send("yay")
+				}
+			})	
+		}
 	})
 
 });
-
-
-// app.post('/edit-event', function(request,response){
-// 	Events.find(request.body,function(err,Events){
-// 		if(err){
-// 			console.log("Error in edit event.")
-// 		}else{
-// 			Events.fleur = "request.body";
-// 			Events.save(function(err,response){
-// 				if(err){
-// 					console.log("Error in save event.")
-// 				}else{
-// 					response.send("yay")
-// 				}
-// 			})	
-// 		}
-// 	})
-
-// });
 
 
 
