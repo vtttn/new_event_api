@@ -95,7 +95,7 @@ app.get('/all-event', function(request, response) {
 		if(err){
 			console.log(err)
 		}else{
-			response.send(Events);
+			response.json(Events);
 		}
 	});
 });
