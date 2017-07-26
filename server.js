@@ -20,12 +20,12 @@ app.listen( port, function(err) {
 
 
 // heroku port
-app.listen( process.env.PORT || 5000, function(err) {  
-  if (err) {
-    return console.log('something bad happened', err)
-  }
-  console.log(`Magic is happening on ${process.env.PORT}`) 
-});
+// app.listen( process.env.PORT || 5000, function(err) {  
+//   if (err) {
+//     return console.log('something bad happened', err)
+//   }
+//   console.log(`Magic is happening on ${process.env.PORT}`) 
+// });
 
 // connecting to MongoDB
 mongoose.connect('mongodb://heroku_b4j2nktr:gnj5m6pb65s7su7gtaj1ldf8mh@ds153732.mlab.com:53732/heroku_b4j2nktr', function (error) {
@@ -101,7 +101,7 @@ app.get('/all-event', function(request, response) {
 });
 
 // new event created + pushed into existing Events array in MongoDB
-app.post('/create-Event', function(request,response){
+app.post('/create-event', function(request,response){
 	var createEvent = new Events(request.body);
 
 	createEvent.save(function(){
@@ -116,44 +116,39 @@ app.use(express.static('public'));
 
 
 // edit events and save to DB
-// app.post('/edit-event', function(request,response){
-// 	// Events.find(function(err,Events){
-// 	// 	console.log(request.body);
-// 	// })
-
-// 	console.log(request.body)
-// });
-
-
 app.post('/edit-event', function(request,response){
-	Events.find(request.body,function(err,Events){
-		if(err){
-			console.log("Error in edit event.")
-		}else{
-			Events.fleur = 36;
-			Events.save(function(err,response){
-				if(err){
-					console.log("Error in save event.")
-				}else{
-					response.send("yay")
-				}
-			})	
-		}
+
+	Events.findOne(request.body,function(err,events){
+		events.fleur = 50;
+		events.save(function(err,response){
+			// if(err){
+			// 	console.log("there is an error")
+			// } else {
+			// 	console.log(response)
+			// }
+			response.send
+		})	
 	})
 
-});
-
-
+})
 
 
 
 
 
 // // a new event is being created and pushed into existing event array
-// app.post('/new-event', function(request, response) { 
-// 	event.push(request.body); 
-// 	response.send(event);
-// });
+// app.post('/edit-event', function(request,response){
+
+// 	Events.findOne(request.body,function(err,Events){
+// 			Events.fleur = 36;
+// 			Events.save(function(err,response){
+// 					response.send(success = true)
+// 				}
+// 			)	
+// 		}
+// 	)
+
+// })
 
 
 // a new account is created and pushed into existing userAccounts array in server.js
