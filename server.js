@@ -95,7 +95,7 @@ app.get('/all-event', function(request, response) {
 		if(err){
 			console.log(err)
 		}else{
-			response.json(Events);
+			response.send(Events);
 		}
 	});
 });
@@ -115,22 +115,44 @@ app.post('/create-Event', function(request,response){
 app.use(express.static('public'));
 
 
+// edit events and save to DB
+app.post('/edit-event', function(request,response){
+	Events.find(function(err,Events){
+		console.log(request.body);
+	})
 
-
-
-
-
-
-
-
-// a new event is being created and pushed into existing event array
-app.post('/new-event', function(request, response) { 
-	event.push(request.body); 
-	response.send(event);
 });
 
 
+// app.post('/edit-event', function(request,response){
+// 	Events.find(request.body,function(err,Events){
+// 		if(err){
+// 			console.log("Error in edit event.")
+// 		}else{
+// 			Events.fleur = "request.body";
+// 			Events.save(function(err,response){
+// 				if(err){
+// 					console.log("Error in save event.")
+// 				}else{
+// 					response.send("yay")
+// 				}
+// 			})	
+// 		}
+// 	})
 
+// });
+
+
+
+
+
+
+
+// // a new event is being created and pushed into existing event array
+// app.post('/new-event', function(request, response) { 
+// 	event.push(request.body); 
+// 	response.send(event);
+// });
 
 
 // a new account is created and pushed into existing userAccounts array in server.js
@@ -143,38 +165,23 @@ app.post('/new-event', function(request, response) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // filtering free Admission 
 
-app.get('/freeAdmission', function(request, response) {  
-    var result;
+// app.get('/freeAdmission', function(request, response) {  
+//     var result;
 
-    for(i = 0; i < event.length; i++){
+//     for(i = 0; i < event.length; i++){
 		
-	if (event[i].admission == 0){
-		 return result = event[i];
-		 // looping through all event to check if the value is equal to 0 and returning the whole event object
-	} else {
-		return null;
-		}
-	}
+// 	if (event[i].admission == 0){
+// 		 return result = event[i];
+// 		 // looping through all event to check if the value is equal to 0 and returning the whole event object
+// 	} else {
+// 		return null;
+// 		}
+// 	}
 	
-	response.send(result);
-});  
+// 	response.send(result);
+// });  
 
 
 

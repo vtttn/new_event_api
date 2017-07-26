@@ -265,7 +265,39 @@
 
 			<h1>Events</h1>
 
-			<div id="eventList"></div>
+			<div id="eventList">
+				
+
+				<div class='panel panel-default'>
+					<div class='panel-heading'>
+						<h2 class='eventList panel-title'>"+data[i].title+"</h2>
+					</div>
+
+					<div class='panel-body'>
+						<p> {{ event.description }} </p>
+						<p>{{ event.street }}
+						<br>{{ event.city + ", " + event.state + " " + event.zip }}</p>
+						<p>{{ event.startDate + " - " event.endDate }}</p>
+						<p>{{ event.startTime + " to " + event.endTime }}</p>
+						<p>Age Restriction: {{ event.ageRestriction }}</p>
+						<p>{{ event.website }}</p>
+						<p>Admission Price: ${{ event.admission }}</p>
+						<p>Fleurs: {{ event.fleur }}</p>
+					</div>
+
+					<div class='panel-footer'>
+						<p><span class='label label-default'>"+data[i].type[0]+"</span> 
+						<span class='label label-default'>"+data[i].type[1]+"</span>
+						<span class='label label-default'>"+data[i].type[2]+"</span> 
+						<span class='label label-default'>"+data[i].type[3]+"</span> 
+						<span class='label label-default'>"+data[i].type[4]+"</span> 
+						<span class='label label-default'>"+data[i].type[5]+"</span> 
+						<span class='label label-default'>"+data[i].type[6]+"</span>
+						<span class='label label-default'>"+data[i].type[7]+"</span></p>
+					</div>
+
+				</div>
+
 			</div>
 
 		</div> <!-- /page container -->
