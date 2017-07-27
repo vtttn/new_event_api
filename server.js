@@ -20,12 +20,12 @@ app.listen( port, function(err) {
 
 
 // heroku port
-// app.listen( process.env.PORT || 5000, function(err) {  
-//   if (err) {
-//     return console.log('something bad happened', err)
-//   }
-//   console.log(`Magic is happening on ${process.env.PORT}`) 
-// });
+app.listen( process.env.PORT || 5000, function(err) {  
+  if (err) {
+    return console.log('something bad happened', err)
+  }
+  console.log(`Magic is happening on ${process.env.PORT}`) 
+});
 
 // connecting to MongoDB
 mongoose.connect('mongodb://heroku_b4j2nktr:gnj5m6pb65s7su7gtaj1ldf8mh@ds153732.mlab.com:53732/heroku_b4j2nktr', function (error) {
