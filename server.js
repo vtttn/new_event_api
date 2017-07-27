@@ -20,12 +20,12 @@ app.listen( port, function(err) {
 
 
 // heroku port
-app.listen( process.env.PORT || 5000, function(err) {  
-  if (err) {
-    return console.log('something bad happened', err)
-  }
-  console.log(`Magic is happening on ${process.env.PORT}`) 
-});
+// app.listen( process.env.PORT || 5000, function(err) {  
+//   if (err) {
+//     return console.log('something bad happened', err)
+//   }
+//   console.log(`Magic is happening on ${process.env.PORT}`) 
+// });
 
 // connecting to MongoDB
 mongoose.connect('mongodb://heroku_b4j2nktr:gnj5m6pb65s7su7gtaj1ldf8mh@ds153732.mlab.com:53732/heroku_b4j2nktr', function (error) {
@@ -89,6 +89,8 @@ eventSchema = new mongoose.Schema({
 
 var Events = mongoose.model('events', eventSchema);
 
+
+
 // grab the event collection from MongoDB
 app.get('/all-event', function(req, res) {  
  	Events.find({},function(err,Events){
@@ -96,6 +98,7 @@ app.get('/all-event', function(req, res) {
 			console.log("there is an erorr in getting all events")
 		}else{
 			res.json(Events);
+
 		}
 	});
 });
@@ -116,19 +119,46 @@ app.use(express.static('public'));
 
 
 // edit events and save to DB
-app.post('/edit-event', function(req,res){
+app.post('/plus-fleur', function(req,res){
 
 	if(req.body){
 		console.log("there is a request.body");
 		console.log(req.body);
-		Events.findOne(req.body,function(err,events){
-			// events.fleur = 90;
-			events.save(function(err,res){
+		Events.findOne(req.body,function(err,event){
+			 event.fleur ++;
+			// console.log();
+			// fleur = req.body.results
+			event.save(function(err,saveRes){
 				if(err){
 					console.log("there is an error in the save")
 				} else {
 					console.log("there is a response!");
-					console.log(res);
+					saveRes.send
+				}
+			
+			})
+		});
+	} else{
+		console.log("there is no request.body")
+	}
+})	
+
+
+app.post('/minus-fleur', function(req,res){
+
+	if(req.body){
+		console.log("there is a request.body");
+		console.log(req.body);
+		Events.findOne(req.body,function(err,event){
+			 event.fleur --;
+			// console.log();
+			// fleur = req.body.results
+			event.save(function(err,saveRes){
+				if(err){
+					console.log("there is an error in the save")
+				} else {
+					console.log("there is a response!");
+					saveRes.send
 				}
 			
 			})
