@@ -90,12 +90,12 @@ eventSchema = new mongoose.Schema({
 var Events = mongoose.model('events', eventSchema);
 
 // grab the event collection from MongoDB
-app.get('/all-event', function(request, response) {  
+app.get('/all-event', function(req, res) {  
  	Events.find({},function(err,Events){
 		if(err){
-			console.log(err)
+			console.log("there is an erorr in getting all events")
 		}else{
-			response.json(Events);
+			res.json(Events);
 		}
 	});
 });
@@ -116,23 +116,28 @@ app.use(express.static('public'));
 
 
 // edit events and save to DB
-app.post('/edit-event', function(request,response){
+app.post('/edit-event', function(req,res){
 
-	Events.findOne(request.body,function(err,events){
-		// events.fleur = 90;
-		events.save(function(err,response){
-			// if(err){
-			// 	console.log("there is an error")
-			// } else {
-			// 	console.log(response);
-			// }
+	if(req.body){
+		console.log("there is a request.body");
+		console.log(req.body);
+		Events.findOne(req.body,function(err,events){
+			// events.fleur = 90;
+			events.save(function(err,res){
+				if(err){
+					console.log("there is an error in the save")
+				} else {
+					console.log("there is a response!");
+					console.log(res);
+				}
+			
+			})
+		});
+	} else{
+		console.log("there is no request.body")
+	}
+})	
 
-			response
-
-		})	
-	})
-
-})
 
 
 
