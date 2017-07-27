@@ -119,14 +119,16 @@ app.use(express.static('public'));
 app.post('/edit-event', function(request,response){
 
 	Events.findOne(request.body,function(err,events){
-		events.fleur = 80;
+		// events.fleur = 90;
 		events.save(function(err,response){
 			// if(err){
 			// 	console.log("there is an error")
 			// } else {
-			// 	console.log(response)
+			// 	console.log(response);
 			// }
-			response.send
+
+			response
+
 		})	
 	})
 
