@@ -62,7 +62,7 @@ app.get('/all-accounts', function(request, response) {
 		if(err){
 			console.log(err)
 		}else{
-			response.json(userAccounts);
+			response.send(userAccounts);
 		}
 	});
 });
